@@ -1,18 +1,13 @@
 server:
-  port: ${PORT}
+  port: ${PORT:2333}
   address: 0.0.0.0
 
 lavalink:
   server:
-    password: "${LAVALINK_PASSWORD}"
+    password: ${LAVALINK_PASSWORD:youshallnotpass}
     sources:
       youtube: true
       soundcloud: true
       bandcamp: true
       http: true
       local: false
-
-logging:
-  level:
-    root: INFO
-    lavalink: INFO
