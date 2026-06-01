@@ -4,7 +4,8 @@ server:
 
 lavalink:
   plugins:
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.13.5"
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.18.0" # Use the latest stable version
+      repository: "https://maven.lavalink.dev/releases"
   server:
     password: ${LAVALINK_PASSWORD:youshallnotpass}
     sources:
