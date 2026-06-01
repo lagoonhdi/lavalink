@@ -1,18 +1,25 @@
-server:
-  port: ${PORT}
-  address: 0.0.0.0
-
-lavalink:
-  server:
-    password: "${LAVALINK_PASSWORD}"
-    sources:
-      youtube: false
-      soundcloud: true
-      bandcamp: true
-      http: true
-      local: false
-
-logging:
-  level:
-    root: INFO
-    lavalink: INFO
+ server:
+   port: ${PORT}
+   address: 0.0.0.0
+ 
+ lavalink:
+   server:
+     password: "${LAVALINK_PASSWORD}"
+-    sources:
+-      youtube: false
+-      soundcloud: true
+-      bandcamp: true
+-      http: true
+-      local: false
++  server:
++    sources:
++      youtube: true
++      soundcloud: true
++      bandcamp: true
++      http: true
++      local: false
+ 
+ logging:
+   level:
+     root: INFO
+     lavalink: INFO
