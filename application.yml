@@ -4,7 +4,7 @@ server:
 
 lavalink:
   plugins:
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.13.4"
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.13.5"
   server:
     password: ${LAVALINK_PASSWORD:youshallnotpass}
     sources:
