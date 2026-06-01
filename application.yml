@@ -3,11 +3,18 @@ server:
   address: 0.0.0.0
 
 lavalink:
+  plugins:
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.13.4"
   server:
     password: ${LAVALINK_PASSWORD:youshallnotpass}
     sources:
-      youtube: true
+      youtube: false
       soundcloud: true
       bandcamp: true
       http: true
       local: false
+
+logging:
+  level:
+    root: INFO
+    lavalink: INFO
