@@ -6,14 +6,24 @@ lavalink:
   plugins:
     - dependency: "dev.lavalink.youtube:youtube-plugin:1.18.1"
       snapshot: false
+
   server:
     password: ${LAVALINK_PASSWORD:youshallnotpass}
+
+    bufferDurationMs: 400
+    frameBufferDurationMs: 3000
+    opusEncodingQuality: 5
+    resamplingQuality: LOW
+
     sources:
       youtube: false
       soundcloud: true
       bandcamp: true
       http: true
       local: false
+      twitch: false
+      vimeo: false
+      nico: false
 
 plugins:
   youtube:
@@ -29,5 +39,8 @@ plugins:
 
 logging:
   level:
-    root: INFO
+    root: WARN
     lavalink: INFO
+    lavalink.server.io.RequestLoggingFilter: WARN
+    com.sedmelluq.discord.lavaplayer: WARN
+    dev.lavalink.youtube: WARN
