@@ -24,6 +24,9 @@ plugins:
     oauth:
       enabled: true
       refreshToken: "${YOUTUBE_REFRESH_TOKEN}"
+    remoteCipher:
+      url: "https://cipher.kikkia.dev/"
+      userAgent: "liam-delap-bot"
     clients:
       - MUSIC
       - TV
