@@ -18,12 +18,11 @@ lavalink:
 plugins:
   youtube:
     enabled: true
-    oauth:
-      enabled: true
-      refreshToken: "${YOUTUBE_REFRESH_TOKEN}"
     allowSearch: true
     allowDirectVideoIds: true
     allowDirectPlaylistIds: true
+    oauth:
+      enabled: true
     clients:
       - MUSIC
       - ANDROID_VR
@@ -35,4 +34,3 @@ logging:
   level:
     root: INFO
     lavalink: INFO
-    dev.lavalink.youtube.http.YoutubeOauth2Handler: INFO
