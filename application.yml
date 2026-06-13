@@ -1,42 +1,71 @@
 server:
   port: ${PORT:2333}
   address: 0.0.0.0
+  http2:
+    enabled: false
 
 lavalink:
   plugins:
     - dependency: "dev.lavalink.youtube:youtube-plugin:1.18.1"
       snapshot: false
+
   server:
-    password: ${LAVALINK_PASSWORD:youshallnotpass}
+    password: ${LAVALINK_PASSWORD}
+
     sources:
       youtube: false
-      soundcloud: true
-      bandcamp: true
-      http: true
+      soundcloud: false
+      bandcamp: false
+      twitch: false
+      vimeo: false
+      nico: false
+      http: false
       local: false
+
+    filters:
+      volume: true
+      equalizer: false
+      karaoke: false
+      timescale: false
+      tremolo: false
+      vibrato: false
+      distortion: false
+      rotation: false
+      channelMix: false
+      lowPass: false
+
+    nonAllocatingFrameBuffer: true
+    bufferDurationMs: 400
+    frameBufferDurationMs: 3000
+    opusEncodingQuality: 5
+    resamplingQuality: LOW
+    trackStuckThresholdMs: 10000
+    useSeekGhosting: true
+    playerUpdateInterval: 5
 
 plugins:
   youtube:
     enabled: true
     allowSearch: true
     allowDirectVideoIds: true
-    allowDirectPlaylistIds: true
+    allowDirectPlaylistIds: false
+
     oauth:
       enabled: true
       refreshToken: "${YOUTUBE_REFRESH_TOKEN}"
+
     remoteCipher:
       url: "https://cipher.kikkia.dev/"
       userAgent: "liam-delap-bot"
+
     clients:
       - MUSIC
-      - TV
       - WEB
-      - WEBEMBEDDED
-      - ANDROID_VR
-      - TVHTML5_SIMPLY
+      - TV
 
 logging:
   level:
-    root: INFO
+    root: WARN
     lavalink: INFO
-    dev.lavalink.youtube.http.YoutubeOauth2Handler: INFO
+    dev.lavalink.youtube: WARN
+    dev.lavalink.youtube.http.YoutubeOauth2Handler: WARN
