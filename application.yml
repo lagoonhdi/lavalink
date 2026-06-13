@@ -1,8 +1,6 @@
 server:
   port: ${PORT:2333}
   address: 0.0.0.0
-  http2:
-    enabled: false
 
 lavalink:
   plugins:
@@ -10,45 +8,21 @@ lavalink:
       snapshot: false
 
   server:
-    password: ${LAVALINK_PASSWORD}
+    password: ${LAVALINK_PASSWORD:youshallnotpass}
 
     sources:
       youtube: false
-      soundcloud: false
-      bandcamp: false
-      twitch: false
-      vimeo: false
-      nico: false
-      http: false
+      soundcloud: true
+      bandcamp: true
+      http: true
       local: false
-
-    filters:
-      volume: true
-      equalizer: false
-      karaoke: false
-      timescale: false
-      tremolo: false
-      vibrato: false
-      distortion: false
-      rotation: false
-      channelMix: false
-      lowPass: false
-
-    nonAllocatingFrameBuffer: true
-    bufferDurationMs: 400
-    frameBufferDurationMs: 3000
-    opusEncodingQuality: 5
-    resamplingQuality: LOW
-    trackStuckThresholdMs: 10000
-    useSeekGhosting: true
-    playerUpdateInterval: 5
 
 plugins:
   youtube:
     enabled: true
     allowSearch: true
     allowDirectVideoIds: true
-    allowDirectPlaylistIds: false
+    allowDirectPlaylistIds: true
 
     oauth:
       enabled: true
@@ -60,12 +34,14 @@ plugins:
 
     clients:
       - MUSIC
-      - WEB
       - TV
+      - WEB
+      - WEBEMBEDDED
+      - ANDROID_VR
+      - TVHTML5_SIMPLY
 
 logging:
   level:
-    root: WARN
+    root: INFO
     lavalink: INFO
-    dev.lavalink.youtube: WARN
-    dev.lavalink.youtube.http.YoutubeOauth2Handler: WARN
+    dev.lavalink.youtube.http.YoutubeOauth2Handler: INFO
